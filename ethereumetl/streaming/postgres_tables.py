@@ -28,7 +28,8 @@ metadata = MetaData()
 
 BLOCKS = Table(
     'blocks', metadata,
-    Column('timestamp', TIMESTAMP),
+    #UNIX instead of dt
+    Column('timestamp', BigInteger),
     Column('number', BigInteger),
     Column('hash', String, primary_key=True),
     Column('parent_hash', String),
@@ -65,7 +66,8 @@ TRANSACTIONS = Table(
     Column('receipt_contract_address', String),
     Column('receipt_root', String),
     Column('receipt_status', BigInteger),
-    Column('block_timestamp', TIMESTAMP),
+    #UNIX instead of dt
+    Column('block_timestamp', BigInteger),
     Column('block_number', BigInteger),
     Column('block_hash', String),
     Column('max_fee_per_gas', BigInteger),
@@ -85,7 +87,8 @@ LOGS = Table(
     Column('topic1', String),
     Column('topic2', String),
     Column('topic3', String),
-    Column('block_timestamp', TIMESTAMP),
+    #UNIX instead of dt
+    Column('block_timestamp', BigInteger),
     Column('block_number', BigInteger),
     Column('block_hash', String),
 )
@@ -98,7 +101,8 @@ TOKEN_TRANSFERS = Table(
     Column('value', Numeric(78)),
     Column('transaction_hash', String, primary_key=True),
     Column('log_index', BigInteger, primary_key=True),
-    Column('block_timestamp', TIMESTAMP),
+    #UNIX rather than DT
+    Column('block_timestamp', BigInteger),
     Column('block_number', BigInteger),
     Column('block_hash', String),
 )
@@ -121,7 +125,8 @@ TRACES = Table(
     Column('trace_address', String),
     Column('error', String),
     Column('status', Integer),
-    Column('block_timestamp', TIMESTAMP),
+    #UNIX rather than dt
+    Column('block_timestamp', BigInteger),
     Column('block_number', BigInteger),
     Column('block_hash', String),
     Column('trace_id', String, primary_key=True),
