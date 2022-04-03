@@ -36,6 +36,6 @@ class UnixTimestampItemConverter(SimpleItemConverter):
 
 def to_timestamp(value):
     if isinstance(value, int):
-        return datetime.utcfromtimestamp(value).strftime('%Y-%m-%d %H:%M:%S')
+        return value
     else:
         return value
